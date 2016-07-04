@@ -144,10 +144,9 @@ public class GameScreen implements Screen {
 			layout.setText(game.font, msg);
 			float width = layout.width;
 			game.font.draw(game.batch,
-					String.format(msg,
-							fps),
-							Arkanoid.SCREEN_WIDTH / 2 - width / 2,
-							Arkanoid.SCREEN_HEIGHT / 2);
+					msg,
+					Arkanoid.SCREEN_WIDTH / 2 - width / 2,
+					Arkanoid.SCREEN_HEIGHT / 2);
 			if (Gdx.input.isKeyPressed(Keys.SPACE)) {
 				game.setScreen(new MainMenuScreen(game));
 			}
@@ -311,8 +310,7 @@ public class GameScreen implements Screen {
 
 	private void drawScore() {
 		game.font.draw(game.batch, 
-				String.format("SCORE: %d",
-						score),
+				"SCORE: " + score,
 						60, 
 						Arkanoid.SCREEN_HEIGHT);
 	}
@@ -325,8 +323,7 @@ public class GameScreen implements Screen {
 
 	private void drawLives() {
 		game.font.draw(game.batch, 
-				String.format("LIVES: %d",
-						lives),
+				"LIVES: " + lives,
 						Arkanoid.SCREEN_WIDTH - 80, 
 						Arkanoid.SCREEN_HEIGHT);
 	}
@@ -336,11 +333,10 @@ public class GameScreen implements Screen {
 			fps = 1 / Gdx.graphics.getDeltaTime();
 			lastFpsTime = System.currentTimeMillis();
 		}
-		game.font.draw(game.batch, 
-				String.format("FPS: %.0f",
-						fps),
-						0, 
-						Arkanoid.SCREEN_HEIGHT);
+//		game.font.draw(game.batch,
+//				"FPS: " + fps,
+//				0,
+//				Arkanoid.SCREEN_HEIGHT);
 	}
 
 	@Override
